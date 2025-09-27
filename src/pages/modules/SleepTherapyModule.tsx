@@ -145,6 +145,7 @@ function SleepTherapyModule() {
 
     const newLog: SleepLog = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track logs per user
       ...currentLog as SleepLog
     };
 

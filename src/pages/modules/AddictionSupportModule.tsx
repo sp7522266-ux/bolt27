@@ -82,6 +82,7 @@ function AddictionSupportModule() {
   const handleCravingLog = (strategy: string, outcome: 'resisted' | 'relapsed') => {
     const newLog: CravingLog = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track logs per user
       timestamp: new Date(),
       intensity: currentCraving.intensity,
       trigger: currentCraving.trigger,

@@ -159,6 +159,7 @@ function MoodTrackerPage() {
 
     const newEntry: MoodEntry = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track entries per user
       ...currentEntry as MoodEntry
     };
 

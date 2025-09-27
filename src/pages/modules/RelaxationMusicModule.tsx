@@ -220,6 +220,27 @@ function RelaxationMusicModule() {
     setCurrentTrack(track);
     setIsPlaying(true);
     setCurrentTime(0);
+    
+    // Save music session start
+    const musicSessions = JSON.parse(localStorage.getItem('mindcare_music_sessions') || '[]');
+    const newSession = {
+      id: Date.now().toString(),
+      userId: user?.id,
+      date: new Date().toISOString().split('T')[0],
+      trackId: track.id,
+      trackTitle: track.title,
+      category: track.category,
+      startTime: new Date().toISOString()
+    };
+    musicSessions.push(newSession);
+    localStorage.setItem('mindcare_music_sessions', JSON.stringify(musicSessions));
+    
+    // Update streak for starting a relaxation session
+    updateStreak();
+    
+    // Dispatch custom event for real-time updates
+    window.dispatchEvent(new CustomEvent('mindcare-data-updated'));
+    
     toast.success(`Now playing: ${track.title}`);
   };
 

@@ -178,6 +178,7 @@ function ExposureTherapyModule() {
 
     const newSession: ExposureSession = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track sessions per user
       exerciseId: selectedExercise.id,
       date: new Date().toISOString().split('T')[0],
       duration: sessionTime,

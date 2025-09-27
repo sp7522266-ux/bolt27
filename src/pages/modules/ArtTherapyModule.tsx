@@ -200,6 +200,19 @@ function ArtTherapyModule() {
       link.href = dataURL;
       link.click();
       
+      // Save art therapy session
+      const artSessions = JSON.parse(localStorage.getItem('mindcare_art_sessions') || '[]');
+      const newSession = {
+        id: Date.now().toString(),
+        userId: user?.id,
+        date: new Date().toISOString().split('T')[0],
+        mode: mode,
+        sessionTime: sessionTime,
+        completed: true
+      };
+      artSessions.push(newSession);
+      localStorage.setItem('mindcare_art_sessions', JSON.stringify(artSessions));
+      
       // Update streak
       updateStreak();
       

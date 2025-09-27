@@ -205,6 +205,7 @@ function VideoTherapyModule() {
     if (!selectedVideo) return;
 
     const progress: WatchProgress = {
+      userId: user?.id, // Add user ID to track progress per user
       videoId: selectedVideo.id,
       watchTime: currentTime,
       completed: true,

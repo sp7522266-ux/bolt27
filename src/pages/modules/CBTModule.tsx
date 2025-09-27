@@ -139,6 +139,7 @@ function CBTModule() {
 
     const newRecord: ThoughtRecord = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track records per user
       ...currentRecord as ThoughtRecord
     };
 

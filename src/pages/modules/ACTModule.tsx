@@ -196,6 +196,7 @@ function ACTModule() {
   const addValue = (valueName: string) => {
     const newValue: Value = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track values per user
       name: valueName,
       description: coreValues.find(v => v.name === valueName)?.description || '',
       importance: 5,

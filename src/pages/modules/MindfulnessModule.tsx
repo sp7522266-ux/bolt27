@@ -158,6 +158,19 @@ function MindfulnessModule() {
     // Dispatch custom event for real-time updates
     window.dispatchEvent(new CustomEvent('mindcare-data-updated'));
     
+    // Save mindfulness session completion
+    const mindfulnessSessions = JSON.parse(localStorage.getItem('mindcare_mindfulness_sessions') || '[]');
+    const newSession = {
+      id: Date.now().toString(),
+      userId: user?.id,
+      date: new Date().toISOString().split('T')[0],
+      sessionType: currentSession?.name || 'Breathing Exercise',
+      duration: sessionTime,
+      completed: true
+    };
+    mindfulnessSessions.push(newSession);
+    localStorage.setItem('mindcare_mindfulness_sessions', JSON.stringify(mindfulnessSessions));
+    
     toast.success('Mindfulness session completed! Well done.');
   };
 

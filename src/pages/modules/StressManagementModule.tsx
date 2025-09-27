@@ -203,6 +203,7 @@ function StressManagementModule() {
   const saveStressLog = () => {
     const newLog: StressLog = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track logs per user
       ...currentLog as StressLog
     };
 

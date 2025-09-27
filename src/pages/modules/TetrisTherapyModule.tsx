@@ -148,6 +148,22 @@ function TetrisTherapyModule() {
     setStressLevel(stressReduction);
     setFocusScore(newFocusScore);
     
+    // Save tetris therapy session
+    const tetrisSessions = JSON.parse(localStorage.getItem('mindcare_tetris_sessions') || '[]');
+    const newSession = {
+      id: Date.now().toString(),
+      userId: user?.id,
+      date: new Date().toISOString().split('T')[0],
+      score: score,
+      level: level,
+      linesCleared: linesCleared,
+      gameTime: gameTime,
+      stressReduction: stressLevel - stressReduction,
+      completed: true
+    };
+    tetrisSessions.push(newSession);
+    localStorage.setItem('mindcare_tetris_sessions', JSON.stringify(tetrisSessions));
+    
     // Update streak
     updateStreak();
     

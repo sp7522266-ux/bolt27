@@ -84,6 +84,7 @@ function GratitudeModule() {
 
     const newEntry: GratitudeEntry = {
       id: Date.now().toString(),
+      userId: user?.id, // Add user ID to track entries per user
       date: new Date().toISOString().split('T')[0],
       entries: filledEntries,
       mood: selectedMood,
