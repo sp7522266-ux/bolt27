@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  BookOpen, Brain, Target, CheckCircle, Plus, Save, ArrowLeft,
-  Lightbulb, AlertTriangle, TrendingUp, Calendar,
-  Edit, Trash2, Star, Award, Clock, Heart
-} from 'lucide-react';
+import { BookOpen, Brain, Target, CheckCircle, Plus, Save, ArrowLeft, Lightbulb, AlertTriangle, TrendingUp, Calendar, CreditCard as Edit, Trash2, Star, Award, Clock, Heart } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import toast from 'react-hot-toast';
 import { updateStreak } from '../../utils/streakManager';
